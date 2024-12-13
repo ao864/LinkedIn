@@ -150,3 +150,5 @@ fig = go.Figure(go.Indicator(
         "bar": {"color": "yellow"}
     }
 ))
+
+return fig

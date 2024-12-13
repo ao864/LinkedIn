@@ -123,12 +123,9 @@ def predictor(inputs):
         st.write(f'Probability of LinkedIn usage: {probability * 100}%')
     if prediction[0] == 1:
         st.write('The person is classified as a LinkedIn user.')
-    else:
-        st.write('The person is classified as not a LinkedIn user.')
-
-    if prediction[0] == 1:
         prediction_message = 'The person is classified as a LinkedIn user.'
     else:
+        st.write('The person is classified as not a LinkedIn user.')
         prediction_message = 'The person is classified as not a LinkedIn user.'
 
     fig = go.Figure(go.Indicator(

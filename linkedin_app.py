@@ -145,13 +145,6 @@ def predictor(inputs):
     
     return fig
 
-if prediction[0] == 1:
-        prediction_message = 'The person is classified as a LinkedIn user.'
-    else:
-        prediction_message = 'The person is classified as not a LinkedIn user.'
-
-
-
 fig = predictor(features)
 st.plotly_chart(fig)
 

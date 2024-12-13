@@ -131,7 +131,6 @@ def predictor(inputs):
 
     if st.button('Predict'):
         st.write(f'Probability of LinkedIn usage: {round(probability * 100, 2)}%')
-        st.write(prediction_message)
 
     fig = go.Figure(go.Indicator(
     mode="gauge+number",

@@ -18,19 +18,19 @@ st.header('Enter the following details:')
 def map_income_to_value(income_category):
     if income_category == "Less than $10,000":
         return 1
-    elif income_category == "10 to under $20,000":
+    elif income_category == "$10,000 to under $20,000":
         return 2
-    elif income_category == "20 to under $30,000":
+    elif income_category == "$20,000 to under $30,000":
         return 3
-    elif income_category == "30 to under $40,000":
+    elif income_category == "$30,000 to under $40,000":
         return 4
-    elif income_category == "40 to under $50,000":
+    elif income_category == "$40,000 to under $50,000":
         return 5
-    elif income_category == "50 to under $75,000":
+    elif income_category == "$50,000 to under $75,000":
         return 6
-    elif income_category == "75 to under $100,000":
+    elif income_category == "$75,000 to under $100,000":
         return 7
-    elif income_category == "100 to under $150,000":
+    elif income_category == "$100,000 to under $150,000":
         return 8
     elif income_category == "$150,000 or more":
         return 9
@@ -61,13 +61,13 @@ def map_education_to_value(education_level):
 # Create input fields for the model features
 income_category = st.selectbox("Select your income category", [
     "Less than $10,000",
-    "10 to under $20,000",
-    "20 to under $30,000",
-    "30 to under $40,000",
-    "40 to under $50,000",
-    "50 to under $75,000",
-    "75 to under $100,000",
-    "100 to under $150,000",
+    "$10,000 to under $20,000",
+    "$20,000 to under $30,000",
+    "$30,000 to under $40,000",
+    "$40,000 to under $50,000",
+    "$50,000 to under $75,000",
+    "$75,000 to under $100,000",
+    "$100,000 to under $150,000",
     "$150,000 or more"
 ])
 

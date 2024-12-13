@@ -74,14 +74,14 @@ income_category = st.selectbox("Select your income category", [
 income = map_income_to_value(income_category)
 
 education_category = st.selectbox("Select your education category", [
-    "Less than high school (Grades 1-8 or no formal schooling)"
-	"High school incomplete (Grades 9-11 or Grade 12 with NO diploma)"
-	"High school graduate (Grade 12 with diploma or GED certificate)"
-	"Some college, no degree (includes some community college)"
-	"Two-year associate degree from a college or university"
-	"Four-year college or university degree/Bachelor’s degree (e.g., BS, BA, AB)"
-	"Some postgraduate or professional schooling, no postgraduate degree (e.g. some graduate school)"
-	"Postgraduate or professional degree, including master’s, doctorate, medical or law degree (e.g., MA, MS, PhD, MD, JD)"
+    "Less than high school (Grades 1-8 or no formal schooling)",
+    "High school incomplete (Grades 9-11 or Grade 12 with NO diploma)",
+    "High school graduate (Grade 12 with diploma or GED certificate)",
+    "Some college, no degree (includes some community college)",
+    "Two-year associate degree from a college or university",
+    "Four-year college or university degree/Bachelor’s degree (e.g., BS, BA, AB)",
+    "Some postgraduate or professional schooling, no postgraduate degree (e.g. some graduate school)",
+    "Postgraduate or professional degree, including master’s, doctorate, medical or law degree (e.g., MA, MS, PhD, MD, JD)"
 ])
 
 # Call the function to map the selected category to a value

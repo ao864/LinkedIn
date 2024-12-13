@@ -119,14 +119,15 @@ def predictor(inputs):
     prediction = model.predict(inputs)
     probability = model.predict_proba(inputs)[0][1] 
 
-    if st.button('Predict'):
-        st.write(f'Probability of LinkedIn usage: {probability * 100}%')
-    if prediction[0] == 1:
-        st.write('The person is classified as a LinkedIn user.')
-        prediction_message = 'The person is classified as a LinkedIn user.'
+    if probability <= 0.33:
+        prediction_message = 'The person is unlikely to be a LinkedIn user.'
+        st.write('Unlikely to be a LinkedIn user.')
+    elif probability <= 0.66:
+        prediction_message = 'The person might be a LinkedIn user.'
+        st.write('Might be a LinkedIn user.')
     else:
-        st.write('The person is classified as not a LinkedIn user.')
-        prediction_message = 'The person is classified as not a LinkedIn user.'
+        prediction_message = 'The person is likely to be a LinkedIn user.'
+        st.write('Likely to be a LinkedIn user.')
 
     fig = go.Figure(go.Indicator(
     mode="gauge+number",

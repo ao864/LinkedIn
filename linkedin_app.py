@@ -115,9 +115,16 @@ features = np.array([[income, education, parent, marital_status, gender, age]])
 probability = model.predict_proba(features)[:, 1]
 prediction = model.predict(features)
 
-def predictor(features):
-    prediction = model.predict(features)
-    probability = model.predict_proba(features)[0][1] 
+def predictor(inputs):
+    prediction = model.predict(inputs)
+    probability = model.predict_proba(inputs)[0][1] 
+
+    if st.button('Predict'):
+    st.write(f'Probability of LinkedIn usage: {probability[0] * 100}%')
+    if prediction[0] == 1:
+        st.write('The person is classified as a LinkedIn user.')
+    else:
+        st.write('The person is classified as not a LinkedIn user.')
 
     fig = go.Figure(go.Indicator(
     mode="gauge+number",
@@ -136,12 +143,5 @@ def predictor(features):
     
     return probability, prediction[0], fig
 
-if st.button('Predict'):
-    st.write(f'Probability of LinkedIn usage: {probability[0] * 100}%')
-    if prediction[0] == 1:
-        st.write('The person is classified as a LinkedIn user.')
-    else:
-        st.write('The person is classified as not a LinkedIn user.')
-
-fig
+predictor(features)
 

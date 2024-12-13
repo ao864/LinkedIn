@@ -128,14 +128,16 @@ pred = predictor(probability, prediction)
 pred
 
 fig = go.Figure(go.Indicator(
-    mode = "gauge+number",
-    value = probability,
-    title = {'text': f"User is: {pred}"},
-    gauge = {"axis": {"range": [0, 1]},
-            "steps": [
-                {"range": [0, 0.33], "color":"red"},
-                {"range": [0.34, 0.66], "color":"gray"},
-                {"range": [0.67, 1], "color":"lightgreen"}
-            ],
-            "bar":{"color":"yellow"}}
+    mode="gauge+number",
+    value=round(probability * 100, 2),  
+    title={'text': f"LinkedIn User Prediction: {prediction}"},
+    gauge={
+        "axis": {"range": [0, 100]},  
+        "steps": [
+            {"range": [0, 33], "color": "red"},
+            {"range": [34, 66], "color": "gray"},
+            {"range": [67, 100], "color": "lightgreen"}
+        ],
+        "bar": {"color": "yellow"}
+    }
 ))

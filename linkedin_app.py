@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 import joblib  # For loading the pre-trained model
+import plotly.graph_objects as go
 
 # Load the pre-trained model (assuming you've saved your model)
 model = joblib.load('log1.pkl')  # Replace 'model.pkl' with the actual filename

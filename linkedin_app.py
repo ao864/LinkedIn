@@ -141,9 +141,9 @@ def predictor(inputs):
     }
 ))
     
-    return probability, prediction[0]
     return fig
 
-predictor(features)
+
+fig = predictor(features)
 st.plotly_chart(fig)
 

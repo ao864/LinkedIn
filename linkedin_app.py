@@ -126,10 +126,15 @@ def predictor(inputs):
     else:
         st.write('The person is classified as not a LinkedIn user.')
 
+    if prediction[0] == 1:
+        prediction_message = 'The person is classified as a LinkedIn user.'
+    else:
+        prediction_message = 'The person is classified as not a LinkedIn user.'
+
     fig = go.Figure(go.Indicator(
     mode="gauge+number",
     value= round(probability * 100, 2),
-    title={'text': f"LinkedIn User Prediction: {prediction[0]}"},
+    title={'text': f"LinkedIn User Prediction: {prediction_message}"},
     gauge={
         "axis": {"range": [0, 100]},  
         "steps": [
@@ -142,6 +147,12 @@ def predictor(inputs):
 ))
     
     return fig
+
+if prediction[0] == 1:
+        prediction_message = 'The person is classified as a LinkedIn user.'
+    else:
+        prediction_message = 'The person is classified as not a LinkedIn user.'
+
 
 
 fig = predictor(features)

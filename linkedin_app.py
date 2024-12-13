@@ -124,33 +124,37 @@ def predictor(inputs):
         # Predict the class and probability
         prediction = model.predict(inputs)
         probability = model.predict_proba(inputs)[0][1]
-
-    if probability <= 0.33:
+        
+        if probability <= 0.33:
         prediction_message = 'The person is unlikely to be a LinkedIn user.'
         st.write('Unlikely to be a LinkedIn user.')
-    elif probability <= 0.66:
+        
+        elif probability <= 0.66:
         prediction_message = 'The person might be a LinkedIn user.'
         st.write('Might be a LinkedIn user.')
-    else:
+
+        else:
         prediction_message = 'The person is likely to be a LinkedIn user.'
         st.write('Likely to be a LinkedIn user.')
 
-    fig = go.Figure(go.Indicator(
-    mode="gauge+number",
-    value= round(probability * 100, 2),
-    title={'text': f"LinkedIn User Prediction: {prediction_message}"},
-    gauge={
-        "axis": {"range": [0, 100]},  
-        "steps": [
-            {"range": [0, 33], "color": "red"},
-            {"range": [34, 66], "color": "gray"},
-            {"range": [67, 100], "color": "lightgreen"}
-        ],
-        "bar": {"color": "yellow"}
-    }
-))
-    if st.button('Predict'):
         st.write(f'Probability of LinkedIn usage: {round(probability * 100, 2)}%')
+
+        fig = go.Figure(go.Indicator(
+        mode="gauge+number",
+        value= round(probability * 100, 2),
+        title={'text': f"LinkedIn User Prediction: {prediction_message}"},
+        gauge={
+            "axis": {"range": [0, 100]},  
+            "steps": [
+                {"range": [0, 33], "color": "red"},
+                {"range": [34, 66], "color": "gray"},
+                {"range": [67, 100], "color": "lightgreen"}
+            ],
+            "bar": {"color": "yellow"}
+        }
+    ))
+        if st.button('Predict'):
+            st.write(f'Probability of LinkedIn usage: {round(probability * 100, 2)}%')
     
     return fig
 

@@ -153,8 +153,7 @@ def predictor(inputs):
             "bar": {"color": "yellow"}
         }
     ))
-    if st.button('Predict'):
-        st.write(f'Probability of LinkedIn usage: {round(probability * 100, 2)}%')
+    
     
     return fig
 

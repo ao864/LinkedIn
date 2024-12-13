@@ -115,9 +115,15 @@ features = np.array([[income, education, parent, marital_status, gender, age]])
 probability = model.predict_proba(features)[:, 1]
 prediction = model.predict(features)
 
+
 def predictor(inputs):
-    prediction = model.predict(inputs)
-    probability = model.predict_proba(inputs)[0][1] 
+    prediction_message = ''
+    fig = None
+
+    if st.button('Predict'):
+        # Predict the class and probability
+        prediction = model.predict(inputs)
+        probability = model.predict_proba(inputs)[0][1]
 
     if probability <= 0.33:
         prediction_message = 'The person is unlikely to be a LinkedIn user.'

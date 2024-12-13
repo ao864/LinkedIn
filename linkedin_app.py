@@ -120,7 +120,7 @@ def predictor(inputs):
     probability = model.predict_proba(inputs)[0][1] 
 
     if st.button('Predict'):
-        st.write(f'Probability of LinkedIn usage: {probability[0] * 100}%')
+        st.write(f'Probability of LinkedIn usage: {probability * 100}%')
     if prediction[0] == 1:
         st.write('The person is classified as a LinkedIn user.')
     else:

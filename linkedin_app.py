@@ -119,24 +119,7 @@ def predictor(features):
     prediction = model.predict(features)
     probability = model.predict_proba(features)[0][1] 
 
-    # Displaying results
-    if st.button('Predict'):
-        st.write(f'Probability of LinkedIn usage: {round(probability * 100, 2)}%')
-        if prediction[0] == 1:
-            st.write('The person is classified as a LinkedIn user.')
-        else:
-            st.write('The person is classified as not a LinkedIn user.')
-    
-    return probability, prediction[0]
-
-if st.button('Predict'):
-    st.write(f'Probability of LinkedIn usage: {probability[0] * 100}%')
-    if prediction[0] == 1:
-        st.write('The person is classified as a LinkedIn user.')
-    else:
-        st.write('The person is classified as not a LinkedIn user.')
-
-fig = go.Figure(go.Indicator(
+    fig = go.Figure(go.Indicator(
     mode="gauge+number",
     value= probability[0],
     title={'text': f"LinkedIn User Prediction: {prediction}"},
@@ -150,5 +133,13 @@ fig = go.Figure(go.Indicator(
         "bar": {"color": "yellow"}
     }
 ))
+    
+    return probability, prediction[0], fig
 
-fig
+if st.button('Predict'):
+    st.write(f'Probability of LinkedIn usage: {probability[0] * 100}%')
+    if prediction[0] == 1:
+        st.write('The person is classified as a LinkedIn user.')
+    else:
+        st.write('The person is classified as not a LinkedIn user.')
+

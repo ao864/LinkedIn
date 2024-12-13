@@ -155,5 +155,7 @@ def predictor(inputs):
     return fig
 
 fig = predictor(features)
-st.plotly_chart(fig)
+
+if fig:
+    st.plotly_chart(fig)
 

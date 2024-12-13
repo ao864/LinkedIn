@@ -124,3 +124,15 @@ def predictor(x, y):
         st.write('The person is classified as not a LinkedIn user.')
 
 predictor(probability, prediction)
+
+fig = go.Figure(go.Indicator(
+    mode = "gauge+number",
+    value = probability,
+    title = {'text': f"User is: {predictor(probability, prediction)[1]}"},
+    gauge = {"axis": {"range": [0, 1]},
+            "steps": [
+                {"range": [0, 0.33], "color":"red"},
+                {"range": [0.34, 0.66], "color":"gray"},
+                {"range": [0.67, 1], "color":"lightgreen"}
+            ],
+            "bar":{"color":"yellow"}}

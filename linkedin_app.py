@@ -129,6 +129,13 @@ def predictor(features):
     
     return probability, prediction[0]
 
+if st.button('Predict'):
+    st.write(f'Probability of LinkedIn usage: {probability[0] * 100}%')
+    if prediction[0] == 1:
+        st.write('The person is classified as a LinkedIn user.')
+    else:
+        st.write('The person is classified as not a LinkedIn user.')
+
 fig = go.Figure(go.Indicator(
     mode="gauge+number",
     value= probability[0],

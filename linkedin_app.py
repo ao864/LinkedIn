@@ -128,7 +128,7 @@ def predictor(inputs):
 
     fig = go.Figure(go.Indicator(
     mode="gauge+number",
-    value= probability[0],
+    value= probability,
     title={'text': f"LinkedIn User Prediction: {prediction}"},
     gauge={
         "axis": {"range": [0, 100]},  

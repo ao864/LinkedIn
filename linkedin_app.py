@@ -130,7 +130,7 @@ pred
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
     value = probability,
-    title = {'text': f"User is: {pred[1]}"},
+    title = {'text': f"User is: {pred}"},
     gauge = {"axis": {"range": [0, 1]},
             "steps": [
                 {"range": [0, 0.33], "color":"red"},

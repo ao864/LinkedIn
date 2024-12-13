@@ -136,3 +136,4 @@ fig = go.Figure(go.Indicator(
                 {"range": [0.67, 1], "color":"lightgreen"}
             ],
             "bar":{"color":"yellow"}}
+))

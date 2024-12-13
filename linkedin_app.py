@@ -35,7 +35,7 @@ prediction = model.predict(features)
 
 # Display the results
 if st.button('Predict'):
-    st.write(f'Probability of LinkedIn usage: {probability[0] * 100}%')
+    st.write(f'Probability of LinkedIn usage: {round(probability[0] * 100,2)}%')
     if prediction[0] == 1:
         st.write('The person is classified as a LinkedIn user.')
     else:

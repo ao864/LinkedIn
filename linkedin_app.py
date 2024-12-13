@@ -36,6 +36,27 @@ def map_income_to_value(income_category):
     else:
         return None  # If no valid category is selected
 
+# Define a function to map the education level input to its corresponding numerical value
+def map_education_to_value(education_level):
+    if education_level == "Less than high school (Grades 1-8 or no formal schooling)":
+        return 1
+    elif education_level == "High school incomplete (Grades 9-11 or Grade 12 with NO diploma)":
+        return 2
+    elif education_level == "High school graduate (Grade 12 with diploma or GED certificate)":
+        return 3
+    elif education_level == "Some college, no degree (includes some community college)":
+        return 4
+    elif education_level == "Two-year associate degree from a college or university":
+        return 5
+    elif education_level == "Four-year college or university degree/Bachelor’s degree (e.g., BS, BA, AB)":
+        return 6
+    elif education_level == "Some postgraduate or professional schooling, no postgraduate degree (e.g. some graduate school)":
+        return 7
+    elif education_level == "Postgraduate or professional degree, including master’s, doctorate, medical or law degree (e.g., MA, MS, PhD, MD, JD)":
+        return 8
+    else:
+        return None  # If no valid category is selected
+
 # Create input fields for the model features
 income_category = st.selectbox("Select your income category", [
     "Less than $10,000",

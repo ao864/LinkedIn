@@ -141,7 +141,8 @@ def predictor(inputs):
     }
 ))
     
-    return probability, prediction[0], fig
+    return probability, prediction[0]
+    return fig
 
 predictor(features)
 

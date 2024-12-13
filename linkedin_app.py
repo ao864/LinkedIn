@@ -143,3 +143,5 @@ if st.button('Predict'):
     else:
         st.write('The person is classified as not a LinkedIn user.')
 
+fig
+

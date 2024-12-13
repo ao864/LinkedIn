@@ -151,4 +151,4 @@ fig = go.Figure(go.Indicator(
     }
 ))
 
-return fig
+fig

@@ -6,7 +6,7 @@ import joblib  # For loading the pre-trained model
 import plotly.graph_objects as go
 
 # Load the pre-trained model (assuming you've saved your model)
-model = joblib.load('log1.pkl')  # Replace 'model.pkl' with the actual filename
+model = joblib.load('log1.pkl') 
 
 # Title of the Streamlit app
 st.title('LinkedIn Usage Prediction')
@@ -115,17 +115,19 @@ features = np.array([[income, education, parent, marital_status, gender, age]])
 probability = model.predict_proba(features)[:, 1]
 prediction = model.predict(features)
 
-# Display the results
-def predictor(x, y):
-    if st.button('Predict'):
-        st.write(f'Probability of LinkedIn usage: {round(probability[0] * 100,2)}%')
-    if prediction[0] == 1:
-        st.write('The person is classified as a LinkedIn user.')
-    else:
-        st.write('The person is classified as not a LinkedIn user.')
+def predictor(features):
+    prediction = model.predict(features)
+    probability = model.predict_proba(features)[0][1] 
 
-pred = predictor(probability, prediction)
-pred
+    # Displaying results
+    if st.button('Predict'):
+        st.write(f'Probability of LinkedIn usage: {round(probability * 100, 2)}%')
+        if prediction[0] == 1:
+            st.write('The person is classified as a LinkedIn user.')
+        else:
+            st.write('The person is classified as not a LinkedIn user.')
+    
+    return probability, prediction[0]
 
 fig = go.Figure(go.Indicator(
     mode="gauge+number",
